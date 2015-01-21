@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" Id="3a08b46a-4a19-4b5b-90dd-55e83512fe82" solutionId="3a08b46a-4a19-4b5b-90dd-55e83512fe82" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" name="StatusKontraktowSW">
+    <features>
+        <featureReference itemId="57490bbc-24c4-49a2-a31c-73cb3cc8bde2" />
+    </features>
+</package>

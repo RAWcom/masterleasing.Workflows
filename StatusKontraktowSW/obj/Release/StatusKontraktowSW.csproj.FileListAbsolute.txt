@@ -1,0 +1,4 @@
+C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\bin\Release\StatusKontraktowSW.dll
+C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\bin\Release\StatusKontraktowSW.pdb
+C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\obj\Release\StatusKontraktowSW.dll
+C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\obj\Release\StatusKontraktowSW.pdb
