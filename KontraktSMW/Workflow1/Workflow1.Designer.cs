@@ -279,9 +279,9 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             this.setState_AkceptacjaOferty = new Microsoft.SharePoint.WorkflowActions.SetState();
             this.logToHistoryListActivity5 = new Microsoft.SharePoint.WorkflowActions.LogToHistoryListActivity();
             this.setStateActivity26 = new System.Workflow.Activities.SetStateActivity();
-            this.SetCT_Odrzucony = new System.Workflow.Activities.CodeActivity();
             this.ifElseActivity1 = new System.Workflow.Activities.IfElseActivity();
             this.logToHistoryListActivity2 = new Microsoft.SharePoint.WorkflowActions.LogToHistoryListActivity();
+            this.SetCT_Odrzucony = new System.Workflow.Activities.CodeActivity();
             this.setState_Odrzucony = new Microsoft.SharePoint.WorkflowActions.SetState();
             this.Oferta_Routing = new System.Workflow.Activities.IfElseActivity();
             this.onWorkflowItemChanged2 = new Microsoft.SharePoint.WorkflowActions.OnWorkflowItemChanged();
@@ -1548,11 +1548,6 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             this.setStateActivity26.Name = "setStateActivity26";
             this.setStateActivity26.TargetStateName = "End";
             // 
-            // SetCT_Odrzucony
-            // 
-            this.SetCT_Odrzucony.Name = "SetCT_Odrzucony";
-            this.SetCT_Odrzucony.ExecuteCode += new System.EventHandler(this.SetCT_Odrzucony_ExecuteCode);
-            // 
             // ifElseActivity1
             // 
             this.ifElseActivity1.Activities.Add(this.Odrzucenie_MailSendAllowed);
@@ -1567,6 +1562,11 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             this.logToHistoryListActivity2.Name = "logToHistoryListActivity2";
             this.logToHistoryListActivity2.OtherData = "";
             this.logToHistoryListActivity2.UserId = -1;
+            // 
+            // SetCT_Odrzucony
+            // 
+            this.SetCT_Odrzucony.Name = "SetCT_Odrzucony";
+            this.SetCT_Odrzucony.ExecuteCode += new System.EventHandler(this.SetCT_Odrzucony_ExecuteCode);
             // 
             // setState_Odrzucony
             // 
@@ -1897,9 +1897,9 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             // stateInitializationActivity2
             // 
             this.stateInitializationActivity2.Activities.Add(this.setState_Odrzucony);
+            this.stateInitializationActivity2.Activities.Add(this.SetCT_Odrzucony);
             this.stateInitializationActivity2.Activities.Add(this.logToHistoryListActivity2);
             this.stateInitializationActivity2.Activities.Add(this.ifElseActivity1);
-            this.stateInitializationActivity2.Activities.Add(this.SetCT_Odrzucony);
             this.stateInitializationActivity2.Activities.Add(this.setStateActivity26);
             this.stateInitializationActivity2.Name = "stateInitializationActivity2";
             // 
@@ -2555,6 +2555,11 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
         private StateActivity Navigator;
 
         private StateActivity Start;
+
+
+
+
+
 
 
 

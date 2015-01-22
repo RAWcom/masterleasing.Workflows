@@ -630,40 +630,6 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
         #region Komunikaty
 
-        private void Komunikat_Odrzucony_ExecuteCode(object sender, EventArgs e)
-        {
-
-            //try
-            //{
-            //    if (IsKomunikatUpdated())
-            //    {
-            //        string strSubject = string.Format("Klient:{0} {1} :: stracony",
-            //                message.Klient.ToString(),
-            //                message.DataZgloszenia.ToShortDateString());
-
-            //        StringBuilder sb = new StringBuilder();
-            //        sb.AppendFormat("<h2>Szczegóły kontraktu:<h2>");
-            //        sb.AppendFormat("<ul>");
-            //        sb.AppendFormat("<li>{0}:{1}</li>", "Klient", message.Klient.ToString());
-            //        sb.AppendFormat("<li>{0}:{1}</li>", "Data Zgłoszenia", message.DataZgloszenia.ToShortDateString());
-            //        sb.AppendFormat("<li>{0}:{1}</li>", "Wartość PLN", message.WartoscPLN.ToString());
-            //        sb.AppendFormat("<li>{0}:{1}</li>", "Cel Finansowania", message.CelFinansowania.ToString());
-            //        sb.AppendFormat("<li>{0}:{1}</li>", "Ustalenia", message.Ustalenia.ToString());
-            //        sb.AppendFormat("<li>{0}:{1}</li>", "Status", message.StatusLeadu.ToString());
-            //        sb.AppendFormat("</ul>");
-
-            //        string strBody = sb.ToString();
-
-            //        KomunikatDlaAgenta(strSubject, strBody);
-            //    }
-
-            //}
-            //catch (Exception exp)
-            //{
-            //    throw;
-            //}
-
-        }
 
         private void Komunikat_AkceptacjaOferty_ExecuteCode(object sender, EventArgs e)
         {
@@ -810,15 +776,14 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
                 WriteToHistoryLog("Przygotowanie wiadomości", "");
 
-                strSubject = string.Format("#{0}:{1}:{2}:{3} :: {4}",
-                                    workflowProperties.ItemId.ToString(),
-                                    strKlient,
-                                    datDataZgloszenia.ToShortDateString(),
-                                    strWartoscPLN,
-                                    coreMessage);
+                strSubject = string.Format(":: Wniosek {0} : {1}",
+                                    coreMessage,
+                                    strKlient);
 
                 StringBuilder sb = new StringBuilder();
-                sb.AppendFormat("<p>Szczegóły kontraktu:</p>");
+                sb.AppendFormat("<body>");
+                sb.AppendFormat("<h3>Szczegóły kontraktu:</h3>");
+                sb.AppendFormat("<div>");
                 sb.AppendFormat("<ul>");
                 sb.AppendFormat("<li>{0}: {1}</li>", "Klient", strKlient);
                 sb.AppendFormat("<li>{0}: {1}</li>", "Data Zgłoszenia", datDataZgloszenia.ToShortDateString());
@@ -827,6 +792,8 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
                 sb.AppendFormat("<li>{0}: {1}</li>", "Ustalenia", strUstalenia);
                 sb.AppendFormat("<li>{0}: {1}</li>", "Status", strStatusLeadu);
                 sb.AppendFormat("</ul>");
+                sb.AppendFormat("</div>");
+                sb.AppendFormat("</body>");
 
                 strBody = sb.ToString();
 
@@ -840,38 +807,6 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
                 return true;
 
-                //WriteToHistoryLog("wysłane", "");
-
-                //mailObject.To = 
-                //mailObject.CC = "biuro@rawcom24.pl";
-                //mailObject.Subject = strSubject;
-                //mailObject.Body = strBody;
-
-                //WriteToHistoryLog("Wiadomość wysłana", "");
-
-                //using (SPSite site = new SPSite(workflowProperties.SiteId))
-                //{
-
-                //    using (SPWeb web = site.AllWebs[workflowProperties.WebId])
-                //    {
-                //        SPList list = web.Lists["tabKolejkaWiadomosciEmail"];
-
-                //        SPListItem item = list.AddItem();
-
-                //        item["colDataPlanowanejWysylki"] = DateTime.Now;
-                //        item["colEmailOdbiorcyWiadomosci"] = emailAgenta.ToString();
-                //        //item["colEmailOdbiorcyKopiiWiadomosci"] =
-                //        //item["colEmailNadawcyWiadomosci"] =
-                //        item["colTematWiadomosci"] = strSubject;
-                //        item["colTrescWiadomosci"] = strBody;
-                //        //item["colBodyHTML"] =
-                //        //item["colStopkaWiadomosciHTML"] =
-                //        item.Update();
-
-                //        WriteToHistoryLog("Wiadomość wysłana", "");
-
-                //    }
-                //}
             }
             else
             {
@@ -970,7 +905,7 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
         private void IsOdrzucenie_MailSendAllowed(object sender, ConditionalEventArgs e)
         {
-            KomunikatDlaAgenta("stracony");
+            e.Result = KomunikatDlaAgenta("stracony");
         }
 
         private void sendEmail_Stracony_MethodInvoking(object sender, EventArgs e)

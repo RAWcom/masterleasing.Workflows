@@ -1,4 +1,4 @@
-﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Size="1059; 1932" AutoSizeMargin="16; 24" AutoSize="False" Location="30; 30" Name="Workflow1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Size="835; 1932" AutoSizeMargin="16; 24" AutoSize="False" Location="30; 30" Name="Workflow1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
 	<StateMachineWorkflowDesigner.DesignerConnectors>
 		<StateDesignerConnector TargetActivity="Navigator" TargetConnectionEdge="Top" SetStateName="setStateActivity1" SourceActivity="Start" TargetConnectionIndex="0" SourceStateName="Start" SourceConnectionEdge="Right" EventHandlerName="eventDrivenActivity1" SourceConnectionIndex="0" TargetStateName="Navigator">
 			<StateDesignerConnector.Segments>
@@ -306,45 +306,45 @@
 		</StateDesigner>
 		<StateDesigner Size="194; 80" AutoSizeMargin="16; 24" AutoSize="False" Location="46; 1749" Name="Navigator">
 			<StateDesigner.Designers>
-				<StateInitializationDesigner Name="stateInitializationActivity15" Size="1246; 393" Location="62; 154">
+				<StateInitializationDesigner Name="stateInitializationActivity15" Size="1246; 393" Location="54; 1782">
 					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Name="logRouter" Size="130; 41" Location="620; 219" />
-						<IfElseDesigner Name="Navigator_Routing" Size="1226; 249" Location="72; 279">
+						<ActivityDesigner Name="logRouter" Size="130; 41" Location="612; 1847" />
+						<IfElseDesigner Name="Navigator_Routing" Size="1226; 249" Location="64; 1907">
 							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Name="StatusLeadu_Telefon" Size="150; 146" Location="91; 353">
+								<IfElseBranchDesigner Name="StatusLeadu_Telefon" Size="150; 146" Location="83; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="Navigator_Telemarketing" Size="130; 62" Location="101; 418" />
+										<SetStateDesigner Name="Navigator_Telemarketing" Size="130; 62" Location="93; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="StatusLeadu_Oferta" Size="150; 146" Location="264; 353">
+								<IfElseBranchDesigner Name="StatusLeadu_Oferta" Size="150; 146" Location="256; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="Navigator_Oferta" Size="130; 62" Location="274; 418" />
+										<SetStateDesigner Name="Navigator_Oferta" Size="130; 62" Location="266; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="StatusLeadu_Wniosek" Size="150; 146" Location="437; 353">
+								<IfElseBranchDesigner Name="StatusLeadu_Wniosek" Size="150; 146" Location="429; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="Navigator_Wniosek" Size="130; 62" Location="447; 418" />
+										<SetStateDesigner Name="Navigator_Wniosek" Size="130; 62" Location="439; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="StatusLeadu_Umowa" Size="150; 146" Location="610; 353">
+								<IfElseBranchDesigner Name="StatusLeadu_Umowa" Size="150; 146" Location="602; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="Navigator_Umowa" Size="130; 62" Location="620; 418" />
+										<SetStateDesigner Name="Navigator_Umowa" Size="130; 62" Location="612; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="StatusLeadu_Uruchomiony" Size="150; 146" Location="783; 353">
+								<IfElseBranchDesigner Name="StatusLeadu_Uruchomiony" Size="150; 146" Location="775; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="Navigator_Uruchomienie" Size="130; 62" Location="793; 418" />
+										<SetStateDesigner Name="Navigator_Uruchomienie" Size="130; 62" Location="785; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="StatusLeadu_Stracony" Size="150; 146" Location="956; 353">
+								<IfElseBranchDesigner Name="StatusLeadu_Stracony" Size="150; 146" Location="948; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="Navigator_Stracony" Size="130; 62" Location="966; 418" />
+										<SetStateDesigner Name="Navigator_Stracony" Size="130; 62" Location="958; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
 								<FaultHandlersActivityDesigner Name="faultHandlersActivity7" Size="130; 41" Location="0; 0" ShowPreview="False" />
-								<IfElseBranchDesigner Name="Status_Lead_Else" Size="150; 146" Location="1129; 353">
+								<IfElseBranchDesigner Name="Status_Lead_Else" Size="150; 146" Location="1121; 1981">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="setStateActivity27" Size="130; 62" Location="1139; 418" />
+										<SetStateDesigner Name="setStateActivity27" Size="130; 62" Location="1131; 2046" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
 							</IfElseDesigner.Designers>
@@ -476,24 +476,24 @@
 				</EventDrivenDesigner>
 			</StateDesigner.Designers>
 		</StateDesigner>
-		<StateDesigner Size="188; 80" AutoSizeMargin="16; 24" Location="46; 1305" Name="Odrzucenie">
+		<StateDesigner Size="188; 80" AutoSizeMargin="16; 24" AutoSize="False" Location="46; 1305" Name="Odrzucenie">
 			<StateDesigner.Designers>
-				<StateInitializationDesigner Name="stateInitializationActivity2" Size="208; 648" Location="54; 1338">
+				<StateInitializationDesigner Name="stateInitializationActivity2" Size="208; 648" Location="343; 154">
 					<StateInitializationDesigner.Designers>
-						<CallExternalMethodActivityDesigner Name="setState_Odrzucony" Size="130; 44" Location="93; 1403" />
-						<ActivityDesigner Name="logToHistoryListActivity2" Size="130; 44" Location="93; 1466" />
-						<IfElseDesigner Name="ifElseActivity1" Size="188; 294" Location="64; 1529">
+						<CallExternalMethodActivityDesigner Name="setState_Odrzucony" Size="130; 44" Location="382; 219" />
+						<CodeDesigner Name="SetCT_Odrzucony" Size="130; 44" Location="382; 282" />
+						<ActivityDesigner Name="logToHistoryListActivity2" Size="130; 44" Location="382; 345" />
+						<IfElseDesigner Name="ifElseActivity1" Size="188; 294" Location="353; 408">
 							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Name="Odrzucenie_MailSendAllowed" Size="150; 191" Location="83; 1603">
+								<IfElseBranchDesigner Name="Odrzucenie_MailSendAllowed" Size="150; 191" Location="372; 482">
 									<IfElseBranchDesigner.Designers>
-										<CallExternalMethodActivityDesigner Name="sendEmail_Stracony" Size="130; 44" Location="93; 1668" />
-										<ActivityDesigner Name="logToHistoryListActivity17" Size="130; 44" Location="93; 1731" />
+										<CallExternalMethodActivityDesigner Name="sendEmail_Stracony" Size="130; 44" Location="382; 547" />
+										<ActivityDesigner Name="logToHistoryListActivity17" Size="130; 44" Location="382; 610" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
 							</IfElseDesigner.Designers>
 						</IfElseDesigner>
-						<CodeDesigner Name="SetCT_Odrzucony" Size="130; 44" Location="93; 1842" />
-						<SetStateDesigner Name="setStateActivity26" Size="130; 62" Location="93; 1905" />
+						<SetStateDesigner Name="setStateActivity26" Size="130; 62" Location="382; 721" />
 					</StateInitializationDesigner.Designers>
 				</StateInitializationDesigner>
 			</StateDesigner.Designers>

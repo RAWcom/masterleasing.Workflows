@@ -6,11 +6,11 @@ Name="[NAME]" ==> Name="MyWorkflow" -->
 
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <Workflow
-     Name="KontraktSMW"
-     Description="My SharePoint Workflow"
+     Name="Obsługa Kontraktu"
+     Description="Obsługa leadów w kontraktach leasingowych"
      Id="50396929-b156-412a-8ac6-226453ee30c8"
-     CodeBesideClass="KontraktSMW.Workflow1.Workflow1"
-     CodeBesideAssembly="KontraktSMW, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cb438f0b8f0145e8">
+     CodeBesideClass="masterleasing.Workflows.KontraktSMW.Workflow1.Workflow1"
+     CodeBesideAssembly="masterleasing.Workflows.KontraktSMW, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cb438f0b8f0145e8">
     <Categories/>
     <MetaData>
       <AssociationCategories>List</AssociationCategories>
