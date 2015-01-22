@@ -1,4 +1,0 @@
-C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\bin\Debug\StatusKontraktowSW.dll
-C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\bin\Debug\StatusKontraktowSW.pdb
-C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\obj\Debug\StatusKontraktowSW.dll
-C:\Users\admin3324\Documents\GitHub\Stafix.MasterLeasing\Stafix.MasterLeasing\CustomWorkflows\StatusKontraktowSW\obj\Debug\StatusKontraktowSW.pdb
