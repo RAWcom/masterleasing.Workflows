@@ -43,7 +43,18 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
         public String logRozliczenie_DodajDoRozliczen = default(System.String);
 
-
+        private void codeSetup_ExecuteCode(object sender, EventArgs e)
+        {
+            try
+            {
+                workflowProperties.Item["colNumerKontraktu"] = String.Format("K.{0}", workflowProperties.ItemId.ToString());
+                workflowProperties.Item["Title"] = ".";
+                workflowProperties.Item.Update();
+            }
+            catch (Exception)
+            {
+            }
+        }
 
         #region Warunki logiczne Navigatora
 
@@ -617,7 +628,6 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
         #endregion
 
-
         #region Komunikaty
 
         private void Komunikat_Odrzucony_ExecuteCode(object sender, EventArgs e)
@@ -706,7 +716,7 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
         #region Komunikaty.Procedury
 
-        private void KomunikatDlaAgenta(string coreMessage)
+        private bool KomunikatDlaAgenta(string coreMessage)
         {
             WriteToHistoryLog("Komunikat dla agenta", coreMessage);
 
@@ -769,7 +779,7 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             catch (Exception exp)
             {
                 ReportError("Odczyt danych z kontraktu", "ERR", exp, true);
-                return;
+                return false;
             }
 
             //znajdź identyfikator kartoteki agenta
@@ -828,6 +838,8 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
                 Mail_Subject = strSubject;
                 Mail_Body = strBody;
 
+                return true;
+
                 //WriteToHistoryLog("wysłane", "");
 
                 //mailObject.To = 
@@ -865,6 +877,8 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             {
                 WriteToHistoryLog("Wiadomość wstrzymana, brak email lub nieaktywna subskrybcja", "");
             }
+
+            return false;
         }
 
         private string GetEmailAgenta(int partnerID)
@@ -935,20 +949,7 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
 
         #endregion
 
-        private void codeActivity1_ExecuteCode(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sendEmail_Stracony_MethodInvoking(object sender, EventArgs e)
-        {
-            KomunikatDlaAgenta("stracony");
-        }
-
-        private void sendEmailZarejestrowany_MethodInvoking(object sender, EventArgs e)
-        {
-            KomunikatDlaAgenta("zarejestrowany");
-        }
+        #region Komunikaty.Obsługa wysyłki maili
 
         public String Mail_To = default(System.String);
         public String Mail_CC = default(System.String);
@@ -967,38 +968,58 @@ namespace masterleasing.Workflows.KontraktSMW.Workflow1
             Mail_Subject = default(System.String);
         }
 
+        private void IsOdrzucenie_MailSendAllowed(object sender, ConditionalEventArgs e)
+        {
+            KomunikatDlaAgenta("stracony");
+        }
+
+        private void sendEmail_Stracony_MethodInvoking(object sender, EventArgs e)
+        {
+            //ustawienie parametrów wysyłki w IsOdrzucenie_MailSendAllowed
+        }
+
+        private void IsAkceptacjaUmowy_SendEmailAllowed(object sender, ConditionalEventArgs e)
+        {
+            e.Result = KomunikatDlaAgenta("umowa zaakceptowana");
+        }
+
         private void sendEmail_UmowaZaakceptowana_MethodInvoking(object sender, EventArgs e)
         {
-            KomunikatDlaAgenta("umowa zaakceptowana");
+            //ustawienia w IsAkceptacjaUmowy_SendEmailAllowed
+        }
+
+        private void IsAkceptacjaOferty_MailSendAllowed(object sender, ConditionalEventArgs e)
+        {
+            e.Result = KomunikatDlaAgenta("oferta zaakceptowana");
         }
 
         private void sendEmail_OfertaZaakceptowana_MethodInvoking(object sender, EventArgs e)
         {
-            KomunikatDlaAgenta("oferta zaakceptowana");
+            //ustawienia w IsAkceptacjaOferty_MailSendAllowed
         }
 
-        private void codeSetup_ExecuteCode(object sender, EventArgs e)
+        private void IsAkceptacjaWniosku_SendMailAllowed(object sender, ConditionalEventArgs e)
         {
-            try
-            {
-                workflowProperties.Item["colNumerKontraktu"] = String.Format("K.{0}", workflowProperties.ItemId.ToString());
-                workflowProperties.Item["Title"] = ".";
-                workflowProperties.Item.Update();
-            }
-            catch (Exception)
-            {
-            }
+            e.Result = KomunikatDlaAgenta("wniosek zaakceptowany");
         }
 
         private void sendEmail_WniosekZaakceptowany_MethodInvoking(object sender, EventArgs e)
         {
-            KomunikatDlaAgenta("wniosek zaakceptowany");
+            //ustawienia w IsAkceptacjaWniosku_SendMailAllowed
+        }
+
+        private void IsUruchomiony_SendMailAllowed(object sender, ConditionalEventArgs e)
+        {
+            e.Result = KomunikatDlaAgenta("środki uruchomione");
         }
 
         private void sendEmail_Uruchomiony_MethodInvoking(object sender, EventArgs e)
         {
-            KomunikatDlaAgenta("środki uruchomione");
+            //ustawienia w IsUruchomiony_SendMailAllowed
         }
+
+        #endregion
+
     }
 
 }
